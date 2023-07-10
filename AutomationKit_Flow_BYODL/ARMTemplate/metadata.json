@@ -1,0 +1,13 @@
+{
+    "$schema": "https://aka.ms/azure-quickstart-templates-metadata-schema#",
+    "itemDisplayName": "Azure Synapse deployment",
+    "description": "This template creates a Azure Synapse Workspace, including SQL serverless Pool and optional Apache Spark Pools",
+    "summary": "Azure Synapse Workspace",
+    "validationType": "Manual",
+    "dateUpdated": "2020-09-10",
+    "type": "QuickStart",
+    "environments": [
+      "AzureCloud"
+    ]
+  }
+  

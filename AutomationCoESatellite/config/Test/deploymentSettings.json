@@ -1,49 +1,6 @@
 {
     "EnvironmentVariables":  [
-                                 {
-                                     "SchemaName":  "autocoe_AutomationProjectAppID",
-                                     "Value":  "#{environmentvariable.autocoe_AutomationProjectAppID}#"
-                                 },
-                                 {
-                                     "SchemaName":  "autocoe_EnvironmentName",
-                                     "Value":  "#{environmentvariable.autocoe_EnvironmentName}#"
-                                 },
-                                 {
-                                     "SchemaName":  "autocoe_EnvironmentId",
-                                     "Value":  "#{environmentvariable.autocoe_EnvironmentId}#"
-                                 },
-                                 {
-                                     "SchemaName":  "autocoe_EnvironmentUniqeName",
-                                     "Value":  "#{environmentvariable.autocoe_EnvironmentUniqeName}#"
-                                 },
-                                 {
-                                     "SchemaName":  "autocoe_EnvironmentURL",
-                                     "Value":  "#{environmentvariable.autocoe_EnvironmentURL}#"
-                                 },
-                                 {
-                                     "SchemaName":  "autocoe_EnvironmentRegion",
-                                     "Value":  "#{environmentvariable.autocoe_EnvironmentRegion}#"
-                                 },
-                                 {
-                                     "SchemaName":  "autocoe_AutomationCoEAlertEmailRecipient",
-                                     "Value":  "#{environmentvariable.autocoe_AutomationCoEAlertEmailRecipient}#"
-                                 },
-                                 {
-                                     "SchemaName":  "autocoe_FlowSessionTraceRecordOwnerId",
-                                     "Value":  "#{environmentvariable.autocoe_FlowSessionTraceRecordOwnerId}#"
-                                 },
-                                 {
-                                     "SchemaName":  "autocoe_DesktopFlowsBaseURL",
-                                     "Value":  "#{environmentvariable.autocoe_DesktopFlowsBaseURL}#"
-                                 },
-                                 {
-                                     "SchemaName":  "autocoe_EnvironmentUniqueNameofCoEMain",
-                                     "Value":  "#{environmentvariable.autocoe_EnvironmentUniqueNameofCoEMain}#"
-                                 },
-                                 {
-                                     "SchemaName":  "autocoe_StoreExtractedScript",
-                                     "Value":  "#{environmentvariable.autocoe_StoreExtractedScript}#"
-                                 }
+
                              ],
     "ConnectionReferences":  [
                                  {
@@ -113,10 +70,22 @@
                                      "ConnectionOwner":  "#{connectionreference.user.autocoe_sharedcommondataservice_34c59}#"
                                  },
                                  {
+                                     "LogicalName":  "autocoe_sharedcommondataserviceforapps_05953",
+                                     "ConnectionId":  "#{connectionreference.autocoe_sharedcommondataserviceforapps_05953}#",
+                                     "ConnectorId":  "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                                     "ConnectionOwner":  "#{connectionreference.user.autocoe_sharedcommondataserviceforapps_05953}#"
+                                 },
+                                 {
                                      "LogicalName":  "autocoe_sharedcommondataserviceforapps_6489c",
                                      "ConnectionId":  "#{connectionreference.autocoe_sharedcommondataserviceforapps_6489c}#",
                                      "ConnectorId":  "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
                                      "ConnectionOwner":  "#{connectionreference.user.autocoe_sharedcommondataserviceforapps_6489c}#"
+                                 },
+                                 {
+                                     "LogicalName":  "autocoe_sharedcommondataserviceforapps_8f079",
+                                     "ConnectionId":  "#{connectionreference.autocoe_sharedcommondataserviceforapps_8f079}#",
+                                     "ConnectorId":  "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                                     "ConnectionOwner":  "#{connectionreference.user.autocoe_sharedcommondataserviceforapps_8f079}#"
                                  },
                                  {
                                      "LogicalName":  "new_sharedoffice365_912a8",
