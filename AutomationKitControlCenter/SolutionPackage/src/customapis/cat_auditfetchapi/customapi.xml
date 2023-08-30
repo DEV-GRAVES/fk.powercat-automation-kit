@@ -1,0 +1,18 @@
+<customapi uniquename="cat_auditfetchapi">
+  <allowedcustomprocessingsteptype>0</allowedcustomprocessingsteptype>
+  <bindingtype>0</bindingtype>
+  <description default="Fetch Audit User Access Details based on duration">
+    <label description="Fetch Audit User Access Details based on duration" languagecode="1033" />
+  </description>
+  <displayname default="Audit Fetch Api">
+    <label description="Audit Fetch Api" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isfunction>0</isfunction>
+  <isprivate>0</isprivate>
+  <name>cat_auditfetchapi</name>
+  <plugintypeid>
+    <plugintypeexportkey>0242A199F7C25F7233801FBB03EB9A97B8A1BD34BB161658AFB239C2D05D221A</plugintypeexportkey>
+  </plugintypeid>
+  <workflowsdkstepenabled>0</workflowsdkstepenabled>
+</customapi>
