@@ -636,12 +636,12 @@ scr_SolutionDeployment_CK As screen:
         NoSuggestionFoundMessage: ="No Projects Found"
         OnChange: |-
             =
-            If(DestinationEnvironmentPicker.TagEvent="Add" && CountRows(Filter(DefaultProjectCollection,autocoe_automationprojectname=DestinationEnvironmentPicker.TagDisplayName))=0,
-            Collect(DefaultProjectCollection,{autocoe_automationprojectname:DestinationEnvironmentPicker.TagDisplayName});
+            If(DestinationEnvironmentPicker.TagEvent="Add" && CountRows(Filter(DefaultProjectCollection,'Automation Project Name'=DestinationEnvironmentPicker.TagDisplayName))=0,
+            Collect(DefaultProjectCollection,{'Automation Project Name':DestinationEnvironmentPicker.TagDisplayName});
             );
             
             If(DestinationEnvironmentPicker.TagEvent="Remove",
-            RemoveIf(DefaultProjectCollection,autocoe_automationprojectname=Text(DestinationEnvironmentPicker.TagDisplayName))
+            RemoveIf(DefaultProjectCollection,'Automation Project Name'=Text(DestinationEnvironmentPicker.TagDisplayName))
             );
         Suggestions_Items: |
             =//Search(colEnvironments, environmentName <> First(EnvironmentDetails).EnvironmentName),"environmentName")
@@ -821,7 +821,7 @@ scr_SolutionDeployment_CK As screen:
             ZIndex: =13
 
         btnSubmitSolution2Meter_1 As Button:
-            ButtonType: ='Microsoft.CoreControls.Button.ButtonType'.Standard
+            ButtonType: ='Button.ButtonType'.Standard
             DisplayMode: =If(CountRows(DefaultProjectCollection)>0,DisplayMode.Edit,DisplayMode.Disabled)
             FillColor: =ColorValue(AppTheme.palette.themePrimary)
             Height: =32
@@ -835,7 +835,7 @@ scr_SolutionDeployment_CK As screen:
             ZIndex: =14
 
         btnCancelSolution2Meter_1 As Button:
-            ButtonType: ='Microsoft.CoreControls.Button.ButtonType'.Standard
+            ButtonType: ='Button.ButtonType'.Standard
             DisplayMode: =Edit
             FillColor: =ColorValue(AppTheme.palette.white)
             Height: =32

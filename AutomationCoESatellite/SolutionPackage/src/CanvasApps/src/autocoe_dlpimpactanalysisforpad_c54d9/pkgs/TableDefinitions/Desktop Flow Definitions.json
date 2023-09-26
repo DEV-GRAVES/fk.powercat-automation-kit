@@ -31,5 +31,6 @@
     "TableName": "autocoe_desktopflowdefinition",
     "Views": "{\"@odata.context\":\"https://autocoesatellitedev.crm.dynamics.com/api/data/v9.0/$metadata#savedqueries(savedqueryid,name,querytype)\",\"value\":[{\"@odata.etag\":\"W/\\\"3036720\\\"\",\"savedqueryid\":\"773e346a-4826-45c9-b022-07e55eaaf08a\",\"name\":\"Desktop Flow Definition Lookup View\",\"querytype\":64},{\"@odata.etag\":\"W/\\\"3036714\\\"\",\"savedqueryid\":\"207b8dc0-731b-4043-95f6-300f92f3cd80\",\"name\":\"Desktop Flow Definition Associated View\",\"querytype\":2},{\"@odata.etag\":\"W/\\\"3036705\\\"\",\"savedqueryid\":\"a04c753d-bd5b-4598-976d-3b152cff4afa\",\"name\":\"Inactive Desktop Flow Definitions\",\"querytype\":0},{\"@odata.etag\":\"W/\\\"3036708\\\"\",\"savedqueryid\":\"8fd6e02f-46d3-40f8-88d1-cab1d72cfb43\",\"name\":\"Active Desktop Flow Definitions\",\"querytype\":0},{\"@odata.etag\":\"W/\\\"3036711\\\"\",\"savedqueryid\":\"67cc525c-4070-41b1-b7bd-e3514dbc6b14\",\"name\":\"Desktop Flow Definition Advanced Find View\",\"querytype\":1}]}"
   },
+  "UnusedDataSources": {},
   "webApiVersion": "v9.0"
 }

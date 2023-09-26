@@ -31,5 +31,6 @@
     "TableName": "autocoe_desktopflowaction",
     "Views": "{\"@odata.context\":\"https://autocoesatellitedev.crm.dynamics.com/api/data/v9.0/$metadata#savedqueries(savedqueryid,name,querytype)\",\"value\":[{\"@odata.etag\":\"W/\\\"3036689\\\"\",\"savedqueryid\":\"b6ca9d25-198e-4766-bfb4-1d212e5aa5da\",\"name\":\"Desktop Flow Action Advanced Find View\",\"querytype\":1},{\"@odata.etag\":\"W/\\\"3036683\\\"\",\"savedqueryid\":\"1a1a321a-1666-47f4-b5ab-1e08dc29d5e7\",\"name\":\"Inactive Desktop Flow Actions\",\"querytype\":0},{\"@odata.etag\":\"W/\\\"3036698\\\"\",\"savedqueryid\":\"1a81ab15-3186-4c1b-86e9-b01390e4e3f3\",\"name\":\"Desktop Flow Action Lookup View\",\"querytype\":64},{\"@odata.etag\":\"W/\\\"3036686\\\"\",\"savedqueryid\":\"a233fdba-c165-437c-875c-d1cbcdad5bf2\",\"name\":\"Active Desktop Flow Actions\",\"querytype\":0},{\"@odata.etag\":\"W/\\\"3036692\\\"\",\"savedqueryid\":\"ddbeb981-b737-49b8-a677-ffba66c03b25\",\"name\":\"Desktop Flow Action Associated View\",\"querytype\":2}]}"
   },
+  "UnusedDataSources": {},
   "webApiVersion": "v9.0"
 }

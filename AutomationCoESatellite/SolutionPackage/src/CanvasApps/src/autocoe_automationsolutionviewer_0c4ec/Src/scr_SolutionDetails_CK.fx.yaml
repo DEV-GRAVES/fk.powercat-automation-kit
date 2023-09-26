@@ -999,7 +999,7 @@ scr_SolutionDetails_CK As screen:
 
     ConfirmationDialogControl_Add_2 As Dialog:
         Buttons: |-
-            =Table({Label: "Cancel", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Standard } ,{Label: "Yes", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Primary})
+            =Table({Label: "Cancel", ButtonType:'Button.ButtonType'.Standard } ,{Label: "Yes", ButtonType:'Button.ButtonType'.Primary})
         DialogHeight: =250
         Fill: =ConfirmationDialogControl_Add_2.OverlayColor
         Height: =Parent.Height
@@ -1109,7 +1109,7 @@ scr_SolutionDetails_CK As screen:
 
     ConfirmationDialogControl_Disable_2 As Dialog:
         Buttons: |-
-            =Table({Label: "Cancel", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Standard } ,{Label: "Yes", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Primary})
+            =Table({Label: "Cancel", ButtonType:'Button.ButtonType'.Standard } ,{Label: "Yes", ButtonType:'Button.ButtonType'.Primary})
         DialogHeight: =250
         Fill: =ConfirmationDialogControl_Disable_2.OverlayColor
         Height: =Parent.Height
@@ -1153,7 +1153,7 @@ scr_SolutionDetails_CK As screen:
 
     ConfirmationDialogControl_Enable_2 As Dialog:
         Buttons: |-
-            =Table({Label: "Cancel", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Standard } ,{Label: "Yes", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Primary})
+            =Table({Label: "Cancel", ButtonType:'Button.ButtonType'.Standard } ,{Label: "Yes", ButtonType:'Button.ButtonType'.Primary})
         DialogHeight: =250
         Fill: =ConfirmationDialogControl_Enable_2.OverlayColor
         Height: =Parent.Height
@@ -1189,7 +1189,7 @@ scr_SolutionDetails_CK As screen:
 
     EditCloudFlowPanel As Panel:
         Buttons: |-
-            =If(_DisablePanelBtn, Table({Label: "Cancel", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Standard }), Table({Label: "Cancel", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Standard } ,{Label: "Save", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Primary, Disable:true}))
+            =If(_DisablePanelBtn, Table({Label: "Cancel", ButtonType:'Button.ButtonType'.Standard }), Table({Label: "Cancel", ButtonType:'Button.ButtonType'.Standard } ,{Label: "Save", ButtonType:'Button.ButtonType'.Primary, Disable:true}))
         Fill: =EditCloudFlowPanel.OverlayColor
         Height: =Parent.Height
         OnButtonSelect: |

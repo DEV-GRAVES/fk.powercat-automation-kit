@@ -15,6 +15,7 @@
       "autocoe_environmentname": "Environment Name",
       "autocoe_ismanaged": "Is Managed",
       "autocoe_originalrecordid": "Original Record Id",
+      "autocoe_plugin": "Plugin",
       "autocoe_solutionid": "Solution Id",
       "autocoe_solutionmetering_AsyncOperations": "System Jobs",
       "autocoe_solutionmetering_BulkDeleteFailures": "Bulk Delete Failures",

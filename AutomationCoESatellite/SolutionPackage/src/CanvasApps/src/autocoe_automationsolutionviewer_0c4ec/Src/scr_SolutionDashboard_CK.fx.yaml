@@ -20,8 +20,8 @@ scr_SolutionDashboard_CK As screen:
                     'Solution Identifier' in 'Solution Meterings'.'Solution Id',
                     LookUp(
                         'Solution Meterings',
-                        GUID(autocoe_solutionid) = 'Solution Identifier'
-                    ).autocoe_AutomationProject.autocoe_automationprojectnumber
+                        GUID('Solution Id') = 'Solution Identifier'
+                    ).'Automation Project'.'Automation Project Number'
                 ),
                 "MeteringOn",
                 If(
@@ -583,7 +583,7 @@ scr_SolutionDashboard_CK As screen:
 
     ConfirmationDialog_RemoveAll As Dialog:
         Buttons: |-
-            =Table({Label: "Cancel", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Standard } ,{Label: "Yes", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Primary})
+            =Table({Label: "Cancel", ButtonType:'Button.ButtonType'.Standard } ,{Label: "Yes", ButtonType:'Button.ButtonType'.Primary})
         Description: =""
         DialogHeight: =200
         Fill: =ConfirmationDialog_RemoveAll.OverlayColor
@@ -601,7 +601,7 @@ scr_SolutionDashboard_CK As screen:
             );
             
             //Adding TimerIcon & AutomationID to the collection
-            ClearCollect(col_Solutions, AddColumns(tempCollection, "AutomationID", If('Solution Identifier' in 'Solution Meterings'.'Solution Id',LookUp('Solution Meterings', GUID(autocoe_solutionid) = 'Solution Identifier').autocoe_AutomationProject.autocoe_automationprojectnumber),"MeteringOn",If('Solution Identifier' in 'Solution Meterings'.'Solution Id',"icon:Lightbulb","icon:Add"),"Createdon",Text('Created On'),"RecordKey",Name,"PackageType",'Package Type',"More",
+            ClearCollect(col_Solutions, AddColumns(tempCollection, "AutomationID", If('Solution Identifier' in 'Solution Meterings'.'Solution Id',LookUp('Solution Meterings', GUID('Solution Id') = 'Solution Identifier').'Automation Project'.'Automation Project Number'),"MeteringOn",If('Solution Identifier' in 'Solution Meterings'.'Solution Id',"icon:Lightbulb","icon:Add"),"Createdon",Text('Created On'),"RecordKey",Name,"PackageType",'Package Type',"More",
             "icon:More","OpeninNewWindow","icon:OpeninNewWindow","IconColor",AppTheme.palette.themePrimary,"SolutionOwner",Owner));
             ClearCollect(DefaultProjectCollection,Table(First('Automation Projects')));
             //Clear(tempCollection);
@@ -675,12 +675,12 @@ scr_SolutionDashboard_CK As screen:
         NoSuggestionFoundMessage: ="No Projects Found"
         OnChange: |-
             =
-            If(AutomationProjectPicker.TagEvent="Add" && CountRows(Filter(DefaultProjectCollection,autocoe_automationprojectname=AutomationProjectPicker.TagDisplayName))=0,
-            Collect(DefaultProjectCollection,LookUp('Automation Projects',autocoe_automationprojectname=AutomationProjectPicker.TagDisplayName));
+            If(AutomationProjectPicker.TagEvent="Add" && CountRows(Filter(DefaultProjectCollection,'Automation Project Name'=AutomationProjectPicker.TagDisplayName))=0,
+            Collect(DefaultProjectCollection,LookUp('Automation Projects','Automation Project Name'=AutomationProjectPicker.TagDisplayName));
             );
             
             If(AutomationProjectPicker.TagEvent="Remove",
-            RemoveIf(DefaultProjectCollection,autocoe_automationprojectname=Text(AutomationProjectPicker.TagDisplayName))
+            RemoveIf(DefaultProjectCollection,'Automation Project Name'=Text(AutomationProjectPicker.TagDisplayName))
             );
         Suggestions_Items: |
             =Search('Automation Projects',AutomationProjectPicker.SearchTerm,"autocoe_automationprojectname")
@@ -912,7 +912,7 @@ scr_SolutionDashboard_CK As screen:
             ZIndex: =13
 
         btnSubmitSolution2Meter As Button:
-            ButtonType: ='Microsoft.CoreControls.Button.ButtonType'.Standard
+            ButtonType: ='Button.ButtonType'.Standard
             DisplayMode: =If(CountRows(DefaultProjectCollection)>0,DisplayMode.Edit,DisplayMode.Disabled)
             FillColor: =ColorValue(AppTheme.palette.themePrimary)
             Height: =32
@@ -950,7 +950,7 @@ scr_SolutionDashboard_CK As screen:
             ZIndex: =14
 
         btnCancelSolution2Meter As Button:
-            ButtonType: ='Microsoft.CoreControls.Button.ButtonType'.Standard
+            ButtonType: ='Button.ButtonType'.Standard
             DisplayMode: =Edit
             FillColor: =ColorValue(AppTheme.palette.white)
             Height: =32

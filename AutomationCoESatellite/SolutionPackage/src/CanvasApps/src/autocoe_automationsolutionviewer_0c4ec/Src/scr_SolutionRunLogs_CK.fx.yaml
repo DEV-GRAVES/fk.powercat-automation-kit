@@ -473,7 +473,7 @@ scr_SolutionRunLogs_CK As screen:
 
     FlowSessionFilterPanel As Panel:
         Buttons: |-
-            =If(!IsBlank(DateValueStartDate.Value),Table({Label: "Apply", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Primary, Enabled:false},{Label: "Cancel", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Standard }))
+            =If(!IsBlank(DateValueStartDate.Value),Table({Label: "Apply", ButtonType:'Button.ButtonType'.Primary, Enabled:false},{Label: "Cancel", ButtonType:'Button.ButtonType'.Standard }))
         DialogWidth: =Parent.Width * 0.6
         Fill: =FlowSessionFilterPanel.OverlayColor
         Height: =Parent.Height
