@@ -1,4 +1,4 @@
-# Pipeline to create a Github release for the Automation Kit solution
+# Pipeline to create a Github release for the CoE Starter Kit solution
 parameters:
 - name: ReleaseMonthNumber
   type: number
@@ -16,6 +16,9 @@ parameters:
 - name: PrepareAppSourcePackage
   type: boolean
   default: false
+- name: PreparePackageDeployerPackage
+  type: boolean
+  default: false
   
 trigger: none
 pr: none
@@ -23,7 +26,7 @@ resources:
   repositories:
   - repository: PipelineRepo  # repository name (DO NOT CHANGE THIS VALUE) 
     type: github
-    ref: main # If your pipeline templates are in a branch other than the default branch specify the branch here. Otherwise the default branch will be used by default.
+    ref: Rajeev-ts-release #main # If your pipeline templates are in a branch other than the default branch specify the branch here. Otherwise the default branch will be used by default.
     endpoint: powercat-alm # Specifies the GitHub service connection for this setup.
     name: Microsoft/coe-alm-accelerator-templates  #This is the name of the repo in the current project in Azure Devops that has the pipeline templates. If the repo is in a different project you can specify the project and repo using the format ProjectContainingTheBuildTemplates/RepositoryContainingTheBuildTemplates (https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema%2Cparameter-schema#type)
 pool:
@@ -67,6 +70,16 @@ steps:
     patterns: '**/AutomationKitControlCenter*.zip'
   displayName: 'Download Automation CoE Control Center solution'
 
+# Download the artifacts from the latest deployment of AutomationKitInstaller to production.
+- task: DownloadPipelineArtifact@2
+  inputs:
+    source: 'specific'
+    project: 'Automation-Kit'
+    pipeline: '2453'
+    runVersion: 'latest'
+    patterns: '**/AutomationKitInstaller*.zip'
+  displayName: 'Download Automation CoE Control Center solution'
+
 - powershell: |
     New-Item -Path $(Pipeline.Workspace)\releaseassets -ItemType Directory
 
@@ -80,8 +93,10 @@ steps:
     Copy-Item 'Microsoft_AutomationKIT_Main_Package.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item 'Microsoft_AutomationKIT_Satellite_Package.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item 'AutomationKitControlCenter*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
+    Copy-Item 'AutomationKitInstaller*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item 'AutomationCoEMain_manifest.ppkg.json' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item 'AutomationCoESatellite_manifest.ppkg.json' -Destination '$(Pipeline.Workspace)\assetstaging'
+    Copy-Item 'AutomationKitInstaller_manifest.ppkg.json' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item '$(Build.SourcesDirectory)\powercat-automation-kit\AutomationKitResources\Release\Collateral\AutomationKit\*.pbit' -Destination '$(Pipeline.Workspace)\assetstaging'
 
     [Reflection.Assembly]::LoadWithPartialName('System.IO.Compression')
@@ -137,6 +152,7 @@ steps:
 
     Copy-Item '$(Pipeline.Workspace)/drop/AutomationCoEMain*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item '$(Pipeline.Workspace)/drop/AutomationCoESatellite*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
+    Copy-Item '$(Pipeline.Workspace)/drop/AutomationKitInstaller*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
 
     $compress = @{
       Path = '$(Pipeline.Workspace)\assetstaging\*.*'
@@ -162,3 +178,5 @@ steps:
     hotfixReleaseNumber: ${{parameters.HotfixReleaseNumber}}
     queryHeadingDelimited: "label:bug|### 🐛 Automation Kit - *BUGS*|label:enhancement|### 🎉 Automation Kit - *FEATURES*|-label:enhancement -label:bug|### ✨ Automation Kit - *OTHER*"
     prepareAppSourcePackage: ${{parameters.PrepareAppSourcePackage}}
+    preparePackageDeployerPackage: ${{parameters.PreparePackageDeployerPackage}}
+    projectName: "powercat-automation-kit"
